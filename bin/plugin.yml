@@ -1,4 +1,8 @@
 name: SwearingBlocker
-version: 0.3
+version: 1.4.1
 main: me.lenis0012.BlockSwearingExtra.BlockSwearingExtra
 dev-url: http://dev.bukkit.org/server-mods/swearingblocker/
+commands:
+  sb:
+    description: SwearingBlocker commands.
+    usage: /<command> <args>
