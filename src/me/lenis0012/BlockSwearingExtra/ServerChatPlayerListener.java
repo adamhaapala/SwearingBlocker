@@ -17,6 +17,8 @@ public class ServerChatPlayerListener implements Listener{
 	public boolean euse;
 	public boolean wuse;
 	public boolean UseBan;
+	public boolean clearInv;
+	//use this to enable inventory clearing after a certain amount of swears(a bit less extreme then banning).
 	public int wamount;
 	public FileConfiguration cc;
 	public ServerChatPlayerListener(BlockSwearingExtra plugin) {
@@ -71,6 +73,10 @@ public class ServerChatPlayerListener implements Listener{
          					cc.addDefault("warnings." + p.getName(), cc.getInt("warnings." + p.getName()) + 1);
          					cc.options().copyDefaults(true);
          					plugin.saveCustomConfig();
+         			} else if(cc.getInt("warnings." + p.getName()) != (wamount - 1)) {
+         				if(clearInv) {
+         					p.getInventory().clear();
+         				}
          			}
          			else{
          				if(UseBan)
